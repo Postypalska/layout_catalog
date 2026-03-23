@@ -1,3 +1,86 @@
+@import 'variables';
+@import 'stars';
+@import 'card';
+
 body {
+  font-family: $font-main;
   margin: 0;
+  background-color: #fff;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.logo-img {
+  height: 40px;
+  display: block;
+}
+
+.nav {
+  margin-left: auto;
+  &__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    padding: 0 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    color: #060b35;
+    position: relative;
+    transition: color 300ms;
+
+    &:hover,
+    &[data-qa='nav-hover']:hover {
+      color: #00acdc;
+    }
+
+    &.is-active {
+      color: #00acdc;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: #00acdc;
+      }
+    }
+  }
+}
+
+.catalog {
+  display: grid;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 40px;
+  gap: 46px 48px;
+
+  grid-template-columns: repeat(1, 200px);
+
+  @media (min-width: 488px) {
+    grid-template-columns: repeat(2, 200px);
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 200px);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 200px);
+  }
 }
